@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var view_1 = require("tns-core-modules/ui/core/view");
-var utils = require("tns-core-modules/utils/utils");
-var types = require("tns-core-modules/utils/types");
+var view_1 = require("@nativescript/core/ui/core/view");
+var utils = require("@nativescript/core/utils/utils");
+var types = require("@nativescript/core/utils/types");
 var definition = require("./svg");
 var SRC = "src";
 var IMAGE_SOURCE = "imageSource";
@@ -120,7 +120,7 @@ function fromNativeSource(source) {
 exports.fromNativeSource = fromNativeSource;
 function fromUrl(url) {
     var image = new definition.ImageSourceSVG();
-    return image.loadFromUrl(url) ? image : null;
+    return image.fromUrl(url) ? image : null;
 }
 exports.fromUrl = fromUrl;
 function fromFileOrResource(path) {

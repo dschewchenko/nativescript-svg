@@ -1,7 +1,7 @@
 import svg = require("./svg");
 import common = require("./svg.common");
-import types = require("tns-core-modules/utils/types");
-import fs = require("tns-core-modules/file-system");
+import types = require("@nativescript/core/utils/types");
+import fs = require("@nativescript/core/file-system");
 
 global.moduleMerge(common, exports);
 declare var SVGKImage: any;
@@ -106,15 +106,14 @@ export class ImageSourceSVG implements svg.ImageSourceSVG {
         });
     }
 
-    public loadFromUrl(url: string): boolean {
-        this.nativeView = SVGKImage.imageWithContentsOfURL(NSURL.URLWithString(url));
-
-        return this.nativeView != null;
-    }
-
     public fromUrl(url: string): Promise<boolean> {
         return new Promise<boolean>((resolve, reject) => {
-            resolve(this.loadFromUrl(url));
+            this.nativeView = SVGKImage.imageWithContentsOfURL(NSURL.URLWithString(url));
+            if(this.nativeView !== null) {
+              resolve(true);
+            } else {
+                reject(false);
+            }
         });
     }
 
@@ -203,7 +202,7 @@ export class SVGImage extends common.SVGImage {
     public onMeasure(widthMeasureSpec: number, heightMeasureSpec: number): void {
         var utils = require("utils/utils");
 
-        // We don't call super because we measure native view with specific size.     
+        // We don't call super because we measure native view with specific size.
         var width = utils.layout.getMeasureSpecSize(widthMeasureSpec);
         var widthMode = utils.layout.getMeasureSpecMode(widthMeasureSpec);
 
@@ -252,4 +251,4 @@ export class SVGImage extends common.SVGImage {
 
         this._setNativeImage(image);
     }
-} 
+}

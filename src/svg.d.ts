@@ -2,16 +2,16 @@
  * Allows you to parse SVG files.
  */
 
-import { Property } from "tns-core-modules/ui/core/dependency-observable";
-import { View } from "tns-core-modules/ui/core/view";
+import { Property } from "@nativescript/core/ui/core/properties";
+import { View } from "@nativescript/core/ui/core/view";
 
 /**
  * Represents a class that provides functionality for loading svg(s).
  */
 export class SVGImage extends View {
-    public static srcProperty: Property;
-    public static imageSourceProperty: Property;
-    public static isLoadingProperty: Property;
+    public static srcProperty: Property<SVGImage, any>;
+    public static imageSourceProperty: Property<SVGImage, ImageSourceSVG>;
+    public static isLoadingProperty: Property<SVGImage, boolean>;
 
     /**
      * Gets or sets the image source of the image.
@@ -33,7 +33,7 @@ export class SVGImage extends View {
      * - **sync** *(default)* - blocks the UI if necessary to display immediately, good for small icons.
      * - **async** - will try to load in the background, may appear with short delay, good for large images.
      */
-    loadMode: string; // "sync" | "async";        
+    loadMode: string; // "sync" | "async";
 }
 
 
@@ -110,12 +110,6 @@ export class ImageSourceSVG {
      * @param source The Base64 string to load the image from.
      */
     fromBase64(source: string): Promise<boolean>;
-
-    /**
-     * Loads this instance from the specified url.
-     * @param url string to load the image from.
-     */
-    loadFromUrl(url: string): boolean;
 
     /**
      * Loads this instance from the specified url asynchronously.

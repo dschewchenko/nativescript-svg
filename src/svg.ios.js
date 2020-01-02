@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var common = require("./svg.common");
-var types = require("tns-core-modules/utils/types");
-var fs = require("tns-core-modules/file-system");
+var types = require("@nativescript/core/utils/types");
+var fs = require("@nativescript/core/file-system");
 global.moduleMerge(common, exports);
 var ImageSourceSVG = (function () {
     function ImageSourceSVG() {
@@ -99,14 +99,16 @@ var ImageSourceSVG = (function () {
             }
         });
     };
-    ImageSourceSVG.prototype.loadFromUrl = function (url) {
-        this.nativeView = SVGKImage.imageWithContentsOfURL(NSURL.URLWithString(url));
-        return this.nativeView != null;
-    };
     ImageSourceSVG.prototype.fromUrl = function (url) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            resolve(_this.loadFromUrl(url));
+            _this.nativeView = SVGKImage.imageWithContentsOfURL(NSURL.URLWithString(url));
+            if (_this.nativeView !== null) {
+                resolve(true);
+            }
+            else {
+                reject(false);
+            }
         });
     };
     ImageSourceSVG.prototype.setNativeSource = function (source) {

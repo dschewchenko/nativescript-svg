@@ -1,6 +1,6 @@
-import { View, Property } from "tns-core-modules/ui/core/view";
-import * as utils from "tns-core-modules/utils/utils";
-import * as types from "tns-core-modules/utils/types"
+import { View, Property } from "@nativescript/core/ui/core/view";
+import * as utils from "@nativescript/core/utils/utils";
+import * as types from "@nativescript/core/utils/types"
 
 // This is used for definition purposes only, it does not generate JavaScript for it.
 import * as definition from "./svg";
@@ -51,7 +51,7 @@ export class SVGImage extends View implements definition.SVGImage {
                 // imageSourceProperty.nativeValueChange(this, source);
                 // this._setValue(SVGImage.isLoadingProperty, false);
                 this.isLoading = false;
-            }
+            };
             //WRONG IMplementation, it can't load data uri, just base xml encode
             if (utils.isDataURI(value)) {
                 var base64Data = value.split(",")[1];
@@ -137,7 +137,7 @@ export function fromNativeSource(source: any): definition.ImageSourceSVG {
 
 export function fromUrl(url: string): definition.ImageSourceSVG {
     var image = new definition.ImageSourceSVG();
-    return image.loadFromUrl(url) ? image : null;
+    return image.fromUrl(url) ? image : null;
 }
 
 export function fromFileOrResource(path: string): definition.ImageSourceSVG {

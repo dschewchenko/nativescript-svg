@@ -1,11 +1,11 @@
-[![npm](https://img.shields.io/npm/v/nativescript-svg.svg)](https://www.npmjs.com/package/nativescript-svg)
-[![npm](https://img.shields.io/npm/dt/nativescript-svg.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-svg)
+[![npm](https://img.shields.io/npm/v/@dschewchenko/nativescript-svg.svg)](https://www.npmjs.com/package/@dschewchenko/nativescript-svg)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-[![Dependency Status](https://david-dm.org/peoplewareDo/nativescript-svg/status.svg)](https://david-dm.org/peoplewareDo/nativescript-svg#info=dependencies)
 # NativeScript SVG
 
+***This repo is a fork of [peoplewareDo/nativescript-svg](https://github.com/peoplewareDo/nativescript-svg).***
+
 ## Install
-`tns plugin add nativescript-svg`
+`tns plugin add @dschewchenko/nativescript-svg`
 
 
 ### Usage
@@ -14,14 +14,14 @@ You use it in the same way you use Image source.
 
 Android Library | iOS CocoaPod
 --------------- | ------------
-[pents90 svg-android](https://github.com/pents90/svg-android) | [SVGKit by SVGKit](https://github.com/SVGKit/SVGKit)
+[BigBadaboom androidsvg](https://github.com/BigBadaboom/androidsvg) | [SVGKit by SVGKit](https://github.com/SVGKit/SVGKit)
 
 ** there are limitations: **
     - saveToFile ins't working
 
 ### Quick start
 ```js
-var ImageSourceSVGModule = require("nativescript-svg");
+var ImageSourceSVGModule = require("@dschewchenko/nativescript-svg");
 var svgFile = new ImageSourceSVGModule.ImageSourceSVG();
 
 var loaded = svgFile.fromResource('foxie');
