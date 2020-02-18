@@ -3,6 +3,7 @@
 # NativeScript SVG
 
 ***This repo is a fork of [peoplewareDo/nativescript-svg](https://github.com/peoplewareDo/nativescript-svg).***
+Change behavior on iOS, when trying to set dynamic svg. In original repo, it doesn`t render image
 
 ## Install
 `tns plugin add @dschewchenko/nativescript-svg`
