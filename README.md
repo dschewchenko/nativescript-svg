@@ -87,39 +87,4 @@ Since ver 1.1 Implement a similar image tag to be used as for example:
 </Page>  
 ```
 
-### Roadmap
-ver 1.6 implement an SVGImage tag that can support svg tags.
-```
-<!-- this is more complicated to implement, pending to be implemented -->
-    <svg:SVGImage width="100" height="100"> 
-        <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-    </svg:SVGImage>
-```
-ver 1.5 Change api dependency from pents90/svg-android to Pixplicity/sharp
-
-
-### Release note
-v1.3.7 -- Fix missing .JS file in the npm package build because npmignore file in the wrong place
-
-v1.3.5 -- Fix missing .JS file in the npm package build
-
-v1.3.4 -- Angular 4 support, please check example code
-
-v1.3.0 -- NS 3+ implementation and it will work with angular if you call registerElement before using it. Thanks to @tbozhikov
-
-v1.1.4 -- Fix svg & demo
-
-v1.1.3 -- Fix SVGImage for iOS - SVGKFastImageView issue#3
-
-v1.1.0 -- Implemented a similar image tag to render svg images.
-
-v1.0.11 -- Major fix for load library issue and demo include.
-
-v1.0.9 -- load from URL on Android and IOS included.
-
-v1.0.7 -- Fix svg.common override issue.
-
-v1.0.5 -- fix for npm package lib not including the .js files.
-
-v1.0.2 -- the base64 encondig on Android included - IOS pending.
 
